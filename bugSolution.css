@@ -1,0 +1,25 @@
+/* Correcting the issues in bug.css */
+
+/* Avoid mixing incompatible units in calc() */
+.element {
+  width: calc(100% - 50px); /* Correct: px and % can be combined */
+  /* Incorrect: trying to combine px and em directly */
+  /* width: calc(100px - 2em); */ 
+  width: calc(100% - (2 * 16px)); /*Corrected by converting em to px assuming 16px base */
+}
+
+/* Handle nested calc() carefully */
+.container {
+  width: calc(50% + calc(25% - 10px)); /* Correct - Parenthesis to enforce order */
+  /* Incorrect - Order of operations not clearly defined */
+  /* width: 50% + 25% - 10px; */
+}
+
+/* Ensure correct spacing and operators */
+.box {
+  margin: calc(10px + 5px); /* Correct */
+  /* Incorrect: Missing '+' operator */
+  /* margin: calc(10px 5px); */
+}
+
+/* Add more examples as needed */
